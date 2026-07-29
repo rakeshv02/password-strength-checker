@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker — Free Online | Tabutility</title>
+  <meta name="description" content="Check how strong your password is instantly. See time-to-crack estimates and tips to make it unbreakable.">
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://password-strength-checker.tabutility.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://password-strength-checker.tabutility.com/">
+  <meta property="og:title" content="Password Strength Checker — Free Online | Tabutility">
+  <meta property="og:description" content="Check how strong your password is instantly. See time-to-crack estimates and tips to make it unbreakable.">
+  <meta property="og:image" content="https://tabutility.com/og-blog.png">
+  <meta property="og:site_name" content="Tabutility">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tabutility.com/og-blog.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <meta name="theme-color" content="#0f172a">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Password Strength Checker","url":"https://password-strength-checker.tabutility.com/","description":"Check how strong your password is instantly. See time-to-crack estimates and tips to make it unbreakable.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Tabutility","url":"https://tabutility.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tabutility","item":"https://tabutility.com"},{"@type":"ListItem","position":2,"name":"Password Strength Checker","item":"https://password-strength-checker.tabutility.com/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is password strength calculated?","acceptedAnswer":{"@type":"Answer","text":"Strength is based on length, character variety (uppercase, lowercase, numbers, symbols), and patterns. Longer passwords with mixed characters are exponentially harder to crack."}},{"@type":"Question","name":"Is my password sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No — all analysis happens entirely in your browser. Your password never leaves your device."}},{"@type":"Question","name":"What makes a password truly strong?","acceptedAnswer":{"@type":"Answer","text":"Length is the biggest factor. A random 16-character password is vastly more secure than a short complex one. Use a password manager like NordPass to generate and store them."}}]}</script>
+  <script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-78VZWJ5B1W');});</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
+</head>
+<body style="margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#0f172a;color:#f1f5f9;min-height:100vh">
+<nav style="background:#1e293b;padding:11px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #334155"><a href="https://tabutility.com" style="color:#fff;font-weight:800;font-size:16px;text-decoration:none">⚡ Tabutility</a><a href="https://tabutility.com/blog/" style="color:#a5b4fc;font-size:13px;font-weight:700;text-decoration:none">📖 Blog</a></nav>
+<div style="max-width:640px;margin:12px auto;padding:0 8px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div id="app" style="max-width:640px;margin:8px auto;padding:0 8px 32px">
+  <h1 style="font-size:24px;font-weight:800;margin:0 0 4px">🔒 Password Strength Checker</h1>
+  <p style="color:#94a3b8;font-size:14px;margin:0 0 20px">Check your password strength instantly. All analysis happens in your browser — nothing is sent anywhere.</p>
+  <div style="background:#1e293b;border-radius:10px;padding:18px;border:1px solid #334155;margin-bottom:14px">
+    <div style="position:relative">
+      <input id="pw" type="password" placeholder="Enter a password to check..." oninput="check()" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;border-radius:6px;padding:14px 50px 14px 14px;color:#f1f5f9;font-size:16px;font-family:monospace;outline:none">
+      <button id="show-btn" onclick="toggle()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#64748b;cursor:pointer;font-size:18px">👁</button>
+    </div>
+  </div>
+  <div id="results" style="display:none">
+    <div style="background:#1e293b;border-radius:10px;padding:18px;border:1px solid #334155;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:700" id="r-label">Weak</span>
+        <span style="font-size:12px;color:#64748b" id="r-score"></span>
+      </div>
+      <div style="height:10px;border-radius:5px;background:#0f172a;margin-bottom:16px;overflow:hidden"><div id="r-bar" style="height:100%;border-radius:5px;transition:all .3s"></div></div>
+      <div style="font-size:13px;color:#94a3b8;margin-bottom:4px">⏱ Time to crack: <span id="r-time" style="color:#f1f5f9;font-weight:600"></span></div>
+    </div>
+    <div style="background:#1e293b;border-radius:10px;padding:18px;border:1px solid #334155;margin-bottom:14px">
+      <div style="font-size:13px;font-weight:700;color:#a5b4fc;margin-bottom:12px">CRITERIA</div>
+      <div id="r-criteria"></div>
+    </div>
+    <div id="r-tips-box" style="background:#1e293b;border-radius:10px;padding:18px;border:1px solid #334155;display:none">
+      <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:10px">💡 How to improve it</div>
+      <div id="r-tips" style="font-size:13px;color:#94a3b8;line-height:1.7"></div>
+    </div>
+  </div>
+</div>
+<script>
+function toggle(){const i=document.getElementById('pw');i.type=i.type==='password'?'text':'password';}
+function check(){
+  const pw=document.getElementById('pw').value;
+  document.getElementById('results').style.display=pw?'block':'none';
+  if(!pw) return;
+  const c={len:pw.length>=12,upper:/[A-Z]/.test(pw),lower:/[a-z]/.test(pw),num:/[0-9]/.test(pw),sym:/[^A-Za-z0-9]/.test(pw),noCommon:!['password','123456','qwerty','letmein','welcome'].some(x=>pw.toLowerCase().includes(x))};
+  const score=Object.values(c).filter(Boolean).length;
+  const labels=['Very Weak','Weak','Fair','Strong','Very Strong','Excellent'];
+  const colors=['#ef4444','#f87171','#fbbf24','#a3e635','#4ade80','#34d399'];
+  const pcts=[10,25,45,65,82,100];
+  const label=labels[score];const color=colors[score];const pct=pcts[score];
+  // Time to crack estimate
+  const pool=(c.lower?26:0)+(c.upper?26:0)+(c.num?10:0)+(c.sym?32:0)||26;
+  const combos=Math.pow(pool,pw.length);
+  const atkPerSec=1e10;
+  const secs=combos/atkPerSec;
+  let timeStr=secs<60?'instantly':secs<3600?(secs/60).toFixed(0)+' minutes':secs<86400?(secs/3600).toFixed(0)+' hours':secs<31536000?(secs/86400).toFixed(0)+' days':secs<31536e6?(secs/31536000).toFixed(0)+' years':'centuries';
+  document.getElementById('r-label').textContent=label;document.getElementById('r-label').style.color=color;
+  document.getElementById('r-score').textContent=score+'/'+Object.keys(c).length+' criteria';
+  document.getElementById('r-bar').style.width=pct+'%';document.getElementById('r-bar').style.background=color;
+  document.getElementById('r-time').textContent=timeStr;
+  const crit=[['len','At least 12 characters (you have '+pw.length+')'],['upper','Uppercase letters (A–Z)'],['lower','Lowercase letters (a–z)'],['num','Numbers (0–9)'],['sym','Special characters (!@#$%...)'],['noCommon','Not a common password']];
+  document.getElementById('r-criteria').innerHTML=crit.map(([k,l])=>'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:16px">'+(c[k]?'✅':'❌')+'</span><span style="font-size:13px;color:'+(c[k]?'#94a3b8':'#f87171')+'">'+l+'</span></div>').join('');
+  const tips=[];
+  if(!c.len) tips.push('Make it at least 12 characters — length is the biggest factor');
+  if(!c.upper) tips.push('Add some uppercase letters (A, B, C...)');
+  if(!c.num) tips.push('Include at least one number');
+  if(!c.sym) tips.push('Add a symbol like !, @, #, or $');
+  if(!c.noCommon) tips.push('Avoid common words like "password" or "welcome"');
+  if(tips.length){document.getElementById('r-tips-box').style.display='block';document.getElementById('r-tips').innerHTML=tips.map(t=>'• '+t).join('<br>');}
+  else{document.getElementById('r-tips-box').style.display='none';}
+}
+</script>
+<div style="max-width:640px;margin:12px auto;padding:0 8px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div style="margin:0 auto 24px;max-width:640px;background:#1e293b;border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;border:1px solid #334155" onclick="window.open('https://go.nordpass.io/aff_c?offer_id=488&aff_id=153622&url_id=9356','_blank','noopener noreferrer')" title="Never forget a password again">
+  <span style="font-size:28px;flex-shrink:0">🔐</span>
+  <div style="min-width:0">
+    <div style="font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:3px">Never forget a password again</div>
+    <div style="font-size:12px;color:#94a3b8">Store &amp; autofill passwords securely with NordPass <span style="color:#4ade80;white-space:nowrap">→ Try NordPass free</span></div>
+    <div style="font-size:10px;color:#475569;margin-top:3px">Sponsored · Ad</div>
+  </div>
+</div>
+<div style="margin:0 auto 24px;max-width:640px;background:#1e293b;border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;border:1px solid #334155" onclick="window.open('https://www.amazon.com/s?k=cybersecurity+privacy+books&tag=tabutility-20','_blank','noopener noreferrer')" title="Interested in cybersecurity?">
+  <span style="font-size:28px;flex-shrink:0">📚</span>
+  <div style="min-width:0">
+    <div style="font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:3px">Interested in cybersecurity?</div>
+    <div style="font-size:12px;color:#94a3b8">Browse security & privacy books <span style="color:#f59e0b;white-space:nowrap">→ Browse on Amazon</span></div>
+    <div style="font-size:10px;color:#475569;margin-top:3px">As an Amazon Associate we earn from qualifying purchases.</div>
+  </div>
+</div>
+<h2 style="font-size:15px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;max-width:640px;margin-left:auto;margin-right:auto">Related Tools</h2>
+<div style="max-width:640px;margin:0 auto 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+      <a href="https://password-generator.tabutility.com/" style="display:block;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit">
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">Password Generator</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">Developer Tools</div></a>
+      <a href="https://uuid-generator.tabutility.com/" style="display:block;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit">
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">UUID Generator</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">Developer Tools</div></a>
+      <a href="https://base64-encoder.tabutility.com/" style="display:block;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit">
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">Base64 Encoder / Decoder</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">Developer Tools</div></a>
+      <a href="https://url-encoder.tabutility.com/" style="display:block;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit">
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">URL Encoder / Decoder</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">Developer Tools</div></a>
+    </div>
+</body>
+</html>
